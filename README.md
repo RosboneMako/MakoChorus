@@ -82,7 +82,19 @@ COOL JUCE STUFFS
 This VST creates its own SLIDER control drawing routines. This is accomplished by creating a copy of the JUCE class and inheriting all of its abilites. Then you OVERRIDE
 a Juce function to create your own routines.
 
+CLASS CREATION  
+```C++
+//R1.00 Create a new LnF class based on Juces LnF class.
+class MakoLookAndFeel : public juce::LookAndFeel_V4
+{
+}
+```
 
+FUNCTION OVERRIDE  
+```C++  
+ //R1.00 Override the Juce SLIDER drawing function so our code gets called instead of Juces code.
+ void drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPos, const float rotaryStartAngle, const float rotaryEndAngle, juce::Slider& sld) override
+```
 
 When you define a SLIDER control, you need to tell it to use your new drawing routines. 
 ```C++  
