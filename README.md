@@ -64,10 +64,11 @@ but uses different modulation rates.
 
 PITCH ISSUES  
 A problem we have with this effect is that we need to alternate our travel up/down the start/stop regions of the delay buffer. It would be best to only modulate
-in one direction. This is problematic when we switch from the stop to the start position, our signal in the delay buffer sill not be in the same point. These instant
-changes will create clicks/pops/etc.
+in one direction. This is problematic when we switch from the stop to the start position, our signal in the delay buffer will not be in the same point. These instant
+changes in our signal level will create clicks/pops/etc.
 
-Since we need to oscillate in two directions, this effect has a bouncing modulating pitch. But you have the tools to try and make it work in one direction. Good luck.
+Since we need to oscillate in two directions, this effect has a bouncing modulating pitch. But you have the tools to try and make it work in one direction. In the past
+I have tried a blending technique at the trasnsition points with some success.
 
 DELAY BUFFER  
 Our delay buffer is created from a float array. Each channel(L/R) has its own buffer/array. 
@@ -77,6 +78,18 @@ We then subtract our modulated index from the original index to get the chorus s
 We then mix the two array values together.
 
 Since we have a finite amount of memory, we will have to deal with keeping our array indexes within our arrays size.
+
+EXAMPLE  
+Lets assume we are modulating between 1000 and 1200 samples from the original signal. 
+* Write new sample into buffer index 1000.
+* Read sample from position 1000 - 1000 = 0.
+* Mix the two samples.
+
+Several samples later our modulation index will move to be 1001 sample delay. 
+* Write new sample into buffer index 1020.
+* Read sample from position 1020 - 1001 = 19.
+* Mix the two samples.
+
 
 # COOL JUCE STUFFS  
 This VST creates its own SLIDER control drawing routines. This is accomplished by creating a copy of the JUCE class and inheriting all of its abilites. Then you OVERRIDE
