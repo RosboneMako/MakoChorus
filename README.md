@@ -83,12 +83,12 @@ EXAMPLE
 Lets assume we are modulating between 1000 and 1200 samples from the original signal. 
 * Write new sample into buffer index 1000.
 * Read sample from position 1000 - 1000 = 0.
-* Mix the two samples.
+* Mix the sample at index 1000 with the sample at index 0.
 
-Several samples later our modulation index will move to be 1001 sample delay. 
-* Write new sample into buffer index 1020.
-* Read sample from position 1020 - 1001 = 19.
-* Mix the two samples.
+Several samples later our modulation index will move to be 1001 sample delay (heading towards 1200). 
+* Write new sample into buffer index 1030.
+* Read sample from position 1030 - 1001 = 29.
+* Mix the sample at index 1030 with the sample at index 29.
 
 
 # COOL JUCE STUFFS  
