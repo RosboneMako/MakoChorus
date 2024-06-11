@@ -24,7 +24,7 @@ SUMMARY
 ------------------------------------------------------------------
 A Juce/C++ VST3 written to create a chorus effect. 
 
-![Demo Image](docs/assets/makoir_demo_01.png)
+![Demo Image](docs/assets/makochorusdemo01.png)
 
 # THEORY OF OPERATION<br />
 
