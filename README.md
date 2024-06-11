@@ -26,7 +26,7 @@ A Juce/C++ VST3 written to create a chorus effect.
 ![Demo Image](docs/assets/makochorusdemo01.png)
 
 # THEORY OF OPERATION<br />
-CHORUS EFFECT
+CHORUS EFFECT  
 A Chorus effect is designed to make a voice/musical instrument sound like more than one
 device is being played simultaneously. It does this by creating a slightly delayed echo
 of the original sound. The amount of time between the original sound and the echo is
@@ -69,4 +69,23 @@ changes will create clicks/pops/etc.
 
 Since we need to oscillate in two directions, this effect has a bouncing modulating pitch. But you have the tools to try and make it work in one direction. Good luck.
 
+DELAY BUFFER  
+Our delay buffer is created from a float array. Each channel(L/R) has its own buffer/array. 
+Each array has an integer index that tells us where we are in the buffer.
+For every sample we read in, we write it to the buffer and then increment the index we are at to the next index.  
+We then subtract our modulated index from the original index to get the chorus sample position.
+We then mix the two array values together.
 
+Since we have a finite amount of memory, we will have to deal with keeping our array indexes within our arrays size.
+
+COOL JUCE STUFFS  
+This VST creates its own SLIDER control drawing routines. This is accomplished by creating a copy of the JUCE class and inheriting all of its abilites. Then you OVERRIDE
+a Juce function to create your own routines.
+
+
+
+When you define a SLIDER control, you need to tell it to use your new drawing routines. 
+```C++  
+ //R1.00 Override the default Juce drawing routines and use ours.
+ slider->setLookAndFeel(&otherLookAndFeel);
+```
