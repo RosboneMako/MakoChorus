@@ -13,9 +13,8 @@ VERSION
 
 DISCLAIMER
 ------------------------------------------------------------------  
-This VST was written in a very simple way. 
-Just simple code for people who are not programmers but want to 
-dabble in the magic of JUCE VSTs.
+This VST was written in a very simple way. Just simple code for
+people who are not programmers but want to dabble in the magic of JUCE VSTs.
 
 If you are new to JUCE code, the Mako Thump VST may be a better
 starting place. Or be brave and try this.
@@ -27,4 +26,9 @@ A Juce/C++ VST3 written to create a chorus effect.
 ![Demo Image](docs/assets/makochorusdemo01.png)
 
 # THEORY OF OPERATION<br />
+A Chorus effect is designed to make a voice/musical instrument sound like more than one
+device is being played simultaneously. It does this by creating a slightly delayed echo
+of the original sound. The amount of time between the original sound and the echo is
+constantly changed. 
+
 
