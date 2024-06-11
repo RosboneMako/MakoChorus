@@ -26,9 +26,18 @@ A Juce/C++ VST3 written to create a chorus effect.
 ![Demo Image](docs/assets/makochorusdemo01.png)
 
 # THEORY OF OPERATION<br />
+CHORUS EFFECT
 A Chorus effect is designed to make a voice/musical instrument sound like more than one
 device is being played simultaneously. It does this by creating a slightly delayed echo
 of the original sound. The amount of time between the original sound and the echo is
 constantly changed. 
 
+The start and stop delay times are usually in the 15 to 20 mS range. These means that the
+core effect is working in the 50 to 67 Hz frequency range of the original signal.
 
+The difference in the start and stop times is called DEPTH in most chorus effect units.
+
+How fast the echo is changed from the start and stop time is called RATE in most units.
+
+FLANGER EFFECT  
+A Flanger is very similar to a chorus effect, but uses mush shorter start and stop delay times.
