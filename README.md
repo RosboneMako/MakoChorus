@@ -78,7 +78,7 @@ We then mix the two array values together.
 
 Since we have a finite amount of memory, we will have to deal with keeping our array indexes within our arrays size.
 
-COOL JUCE STUFFS  
+# COOL JUCE STUFFS  
 This VST creates its own SLIDER control drawing routines. This is accomplished by creating a copy of the JUCE class and inheriting all of its abilites. Then you OVERRIDE
 a Juce function to create your own routines.
 
