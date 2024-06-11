@@ -32,6 +32,8 @@ device is being played simultaneously. It does this by creating a slightly delay
 of the original sound. The amount of time between the original sound and the echo is
 constantly changed. 
 
+This effect creates a watery sounding echo.
+
 The start and stop delay times are usually in the 15 to 20 mS range. These means that the
 core effect is working in the 50 to 67 Hz frequency range of the original signal.
 
@@ -40,4 +42,31 @@ The difference in the start and stop times is called DEPTH in most chorus effect
 How fast the echo is changed from the start and stop time is called RATE in most units.
 
 FLANGER EFFECT  
-A Flanger is very similar to a chorus effect, but uses mush shorter start and stop delay times.
+A Flanger is very similar to a chorus effect, but uses mush shorter start and stop delay times. The rate is also shorter in most cases.
+
+This effect creates a doppler effected sound like a jet engine is approaching your position.
+
+The start and stop delay times are usually in the .1 to 5 mS range. These means that the
+core effect is working in the 200 to 10,000 Hz frequency range of the original signal. 
+
+COMB FILTER  
+A comb filter is generically a delay. When you mix two signals and one is delayed, they will interfere with each other. This will destroy
+sections of the signals frequency response. This frequency destruction is what creates the jet engine sound of the flanger.
+
+This demo VST utilizes stereo operation for most effects. This gives the widest and best sounding effect. However, since the flanger effect is created
+by removing freqency sections. Stereo operation negates the effect. Any missing freqs in one channel will be played in the other channel. So the 
+listener hears less of the effect.
+
+WEIRD EFFECTS  
+This VST also employs a by product of the chorus effect. When the delay time is modulating, it alters the pitch of the effect signal being mixed. By using fixed
+modulation rates and larger delay buffers, we can create weird pitch effects. This VST has three modes programmed. Each mode uses the same techniques and code,
+but uses different modulation rates.
+
+PITCH ISSUES  
+A problem we have with this effect is that we need to alternate our travel up/down the start/stop regions of the delay buffer. It would be best to only modulate
+in one direction. This is problematic when we switch from the stop to the start position, our signal in the delay buffer sill not be in the same point. These instant
+changes will create clicks/pops/etc.
+
+Since we need to oscillate in two directions, this effect has a bouncing modulating pitch. But you have the tools to try and make it work in one direction. Good luck.
+
+
